@@ -1,2 +1,2 @@
 # Java
-Proyectos de Java con MySQL
+Proyectos Java con SQL
