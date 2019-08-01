@@ -1,2 +1,2 @@
 # Java
-Proyectos Java con SQL
+Proyectos Java - SQL
