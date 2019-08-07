@@ -1,0 +1,162 @@
+  
+1) rta:
+-No, la unica forma de ver ese atributo es con un getter.
+
+public class auto extends vehículo{
+
+  private String marca;
+	
+	public auto (int peso, int largo, int ancho, String marca){
+	
+	super(peso, largo, ancho);
+	
+	this.marca = marca;
+		
+	}
+
+}
+
+2) rta:
+
+
+public class persona{
+	 
+  private String nombre;
+  private String apelido;
+  private String dni;
+  private String genero;	
+  private String fechaNac;
+
+	public persona (String nombre, String apellido, String dni, String genero, String fechaNac){
+
+	 this.nombre = nombre;
+	 this.apellido = apellido;
+	 this.dni = dni;
+	 this.genero = genero;
+	 this.fechaNac = fechaNac;	 
+	}
+
+ public String getNombreyApellido(){
+
+	return nombre+" "+apellido;
+
+ } 
+ 
+ public String getdni(){
+
+	return dni;	
+ }
+}
+
+public class empleado extends persona{
+ 
+  private int prefijo;
+  private int digitoVerrificador;
+  private String fechaIng;	
+	
+	public empleado (String nombre, String apellido, int edad, String genero, int digitoVerificador, int prefijo, String fechaIng){
+	 
+	 super (nombre, apellido, dni, genero,fechaNac);
+	
+	  this.prefijo = prefijo;
+	  this.digitoVerificador = digitoVerificador;		 
+	  this.fechaIng = fechaIng;
+
+	}	
+
+  public String getDame_Cuil(){
+ 
+	return prefijo+"-"+getdni()+"-"+digitoVerificador;
+  }	
+
+}
+
+public class profesor extends empleado{
+ 
+  private String enseñanza;
+
+	public profesor (String area,){  // agregar parametros
+	super(dv,pf,nombre,apellido,dni);
+	 this.area = area;
+
+	}
+	
+  public String getEnseñanza(){
+
+	return enseñanza;
+  }
+
+}
+
+3) rta:
+
+public class producto{
+
+private double mayorista,iva,ganancia;
+
+	int cantidad_productos;
+	public producto (double mayorista, double iva, double ganancia){
+	
+	this.mayorista = mayorista;
+	this.iva = iva;
+	this.ganancia = gananca;
+	
+	}  
+public double PrecioVenta() {
+		
+	iva = mayorista*0.21;
+	ganancia=mayorista+iva;
+
+
+	return ganancia;
+
+	}
+public void precio_especial(int cantidad_productos){
+	if( cantidad_productos == 6)
+	{
+	   iva = mayorista*0.21;
+	   ganancia=mayorista-iva;	  
+	}
+
+public double get_precio_especial() {
+	return ganancia;
+
+	}
+}
+}
+4) rta:
+
+
+select gondola.precio,super.nombre,producto.nombre //columnas que vamos a usar de las tablas
+
+from super, prducto, gondola  //tablas
+
+where gondola.precio>55 and super.nombre= 'coto' and
+super.idsuper=gondola.idsuper and gondola.idproducto=producto.idproducto
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//otra forma de relacionar
+
+JOIN supermercados on supermercados.idsuper=gondolas.idsuper
+REIGHT JOIN productos on productos.idproductos=gondola.idproducto
+
+
+SELECT venta.id_venta, venta.id_tipo_empanada,venta.cantidad_vendida 
+FROM venta 
+WHERE venta.cantidad_vendida >= 1000
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+CREATE VIEW `consulta_alumno`  AS  select `alumnos`.`DNI` AS `DNI`,`personas`.`Nombre` AS `Nombre`,`personas`.`Apellido` 
+AS `Apellido`,`alumnos`.`ID_curso` AS `ID_curso`,`alumnos`.`Legajo` AS `Legajo` 
+from (`personas` join `alumnos`) where (`alumnos`.`DNI` = `personas`.`DNI`) 
+
+
+
+}
+
+ 

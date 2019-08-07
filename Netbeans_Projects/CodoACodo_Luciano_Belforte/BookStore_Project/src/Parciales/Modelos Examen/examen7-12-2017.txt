@@ -1,0 +1,49 @@
+1)
+
+SELECT Localidad.nombre, TipoVendedor.descripcion, Localidad.CantiadHabtantes,Vendedor.nombre
+FROM Localidad, TipoVendedor, Vendedor
+WHERE TipoVendedor.id=Vendedor.idTipoVendedor AND
+Localidad.id=Vendedor.idLocalidad AND TipoVendedor.descripcion='Élite',
+AND Localidad.CantiadHabtantes>500000
+/////////////////////////////////////////////////////////////////////
+**********************CON JOIN****************************
+JOIN Localidad
+ON Localidad.id=Vendedor.idLocalidad
+JOIN TipoVendedor
+ON TipoVendedor.id=Vendedor.idTipoVendedor
+
+2)
+
+SELECT Localidad.CantiadHabtantes, Localidad.nombre, Provincia.nombre,
+Provincia.CantidadHabitantes
+FROM Localidad, Provincia
+WHERE Localidad.idProvincia=Provincia.id AND Provincia.CantidadHabitantesLocalidad.CantiadHabtantes>500000 AND (Provincia.CantidadHabitantes>500000 OR Provincia.CantidadHabitantes<=2000000)
+
+///////////////////////////////////////////////////////////////////////
+***************CON BETWEEN********************************************
+Provincia.CantidadHabitantes BETWEEN 500000 AND 2000000
+ 
+
+3)
+
+SELECT Vendedor.nombre, Provincia.nombre
+FROM Vendedor, Provincia , Localidad
+WHERE Vendedor.idLocalidad=Localidad.id AND Localida.idProvincia=Provincia.id AND Provincia.nombre='Buenos Aires' 
+
+
+
+
+4)
+
+SELECT Localidad.nombre AS localidad, Povincia.nombre AS provincia
+FROM Localidad, Provincia = Localida l, Provincias p
+WHERE Localidad.idProvincia=Provincia.id 
+
+
+5)
+
+SELECT Vendedores.nombre
+FROM Vendedores,Localidad, Provincia
+WHERE Vendedor.idLocalidad=Localidad.id AND Localida.idProvincia=Provincia.id AND 
+Provincia.CantidadHabitantes<1000000 AND
+Vendedor.email is null
