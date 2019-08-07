@@ -1,0 +1,9 @@
+
+import java.awt.Image;
+import java.awt.Toolkit;
+
+
+ public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/logohp.png"));
+        return retValue;
+    }

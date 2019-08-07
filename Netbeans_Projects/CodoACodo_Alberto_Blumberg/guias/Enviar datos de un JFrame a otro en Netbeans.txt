@@ -1,0 +1,2 @@
+Enviar datos de un JFrame a otro en Netbeans
+https://www.youtube.com/watch?v=nlYiP57A8pk
